@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box; /* Utilisation du modèle de boîte border-box pour calculer les dimensions, incluant la marge et le padding */
+    margin: 0; /* Suppression de toutes les marges par défaut */
+    padding: 0; /* Suppression de tous les paddings par défaut */
+}
+body {
+    display: flex; /* Utilisation du modèle de boîte flexible pour le contenu du corps */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Hauteur minimale de la fenêtre visible (viewport height) pour assurer que la page occupe au moins toute la hauteur de la fenêtre */
+}
+.switch {
+    display: inline-block; /* Affichage en tant que élément en ligne, pour occuper seulement l'espace nécessaire */
+    position: relative; /* Position relative pour des éléments internes positionnés par rapport à celui-ci */
+    width: 70px; /* Largeur de 70 pixels pour l'élément "switch" */
+    height: 40px; /* Hauteur de 40 pixels pour l'élément "switch" */
+    cursor: pointer; /* Curseur de type "pointer" pour indiquer que l'élément est cliquable */
+    overflow: hidden; /* Masque tout contenu débordant de l'élément */
+}
+.switch input {
+    position: absolute; /* Position absolue pour masquer l'élément "input" */
+    top: -30px; /* Déplacement de 30 pixels vers le haut pour le cacher hors de la vue */
+    left: -30px; /* Déplacement de 30 pixels vers la gauche pour le cacher hors de la vue */
+    width: 0; /* Largeur de 0, donc l'élément "input" est invisible */
+    height: 0; /* Hauteur de 0, donc l'élément "input" est invisible */
+}
+.switch input + span {
+    position: absolute; /* Position absolue pour le "span" */
+    top: 0; /* Position en haut de l'élément parent "switch" */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #99b4df;
+    border-radius: 20px;
+}
+.switch input:checked + span {
+    background: #346abf;
+}
+.switch input + span:before {
+    content: ""; /* Élément de contenu vide pour le pseudosélecteur ":before" */
+    display: inline-block; /* Affichage en tant que élément en ligne, pour avoir une forme rectangulaire */
+    position: absolute; /* Position absolue pour le pseudosélecteur ":before" */
+    top: 50%; /* Position verticale au milieu de l'élément parent "span" */
+    left: 4px; /* Position à 4 pixels de la gauche de l'élément parent "span" */
+    width: 32px; /* Largeur de 32 pixels pour le pseudosélecteur ":before" */
+    height: 32px; /* Hauteur de 32 pixels pour le pseudosélecteur ":before" */
+    background: white;
+    border-radius: 50%; /* Coins arrondis pour créer un cercle */
+    transform: translateY(-50%); /* Déplacement vertical de 50% vers le haut pour centrer verticalement le cercle */
+    transition: all .5s; /* Animation de transition de toutes les propriétés sur 0.5 seconde */
+}
+.switch input:checked + span:before {
+    left: 34px;
+    background: black;
+}
